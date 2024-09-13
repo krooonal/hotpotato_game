@@ -15,6 +15,21 @@ def start_game(request):
         body = json.loads(request.body)
         user_email = body.get('user_email')
         new_game = game_data.create_game(user_email)
+        game_id = new_game["game_id"]
+
+        send_mail(
+            subject='You have created a Hot Potato!',
+            message=f'You have 24 hours to pass the hot potato.\n' +
+            f'Pass the potato using ' +
+            f'http://localhost:8080/passpotato.html?' +
+            f'user={user_email}&gameId={game_id}',
+            html_message=f'You have 24 hours to pass the hot potato.\n' +
+            f'Pass the potato using ' +
+            f'<a href=http://localhost:8080/passpotato.html?' +
+            f'user={user_email}&gameId={game_id}>this link</a>',
+            from_email='noreply@krooonal.com',
+            recipient_list=[user_email]
+        )
         return JsonResponse({"game_id": new_game["game_id"], "message": "Game started!"})
 
 @csrf_exempt
@@ -31,10 +46,19 @@ def pass_potato(request):
         
         # Send email notification to the new user
         send_mail(
-            'You have the Hot Potato!',
-            f'You have 24 hours to pass the hot potato.',
-            'noreply@krooonal.com',
-            [new_user]
+            subject='You have the Hot Potato!',
+            message=f'{current_user} passed you a hot potato.\n' +
+            f'You have 24 hours to pass the hot potato.\n' +
+            f'Pass the potato using ' +
+            f'http://localhost:8080/passpotato.html?' +
+            f'user={new_user}&gameId={game_id}',
+            html_message=f'{current_user} passed you a hot potato.\n' +
+            f'You have 24 hours to pass the hot potato.\n' +
+            f'Pass the potato using ' +
+            f'<a href=http://localhost:8080/passpotato.html?' +
+            f'user={new_user}&gameId={game_id}>this link</a>',
+            from_email='noreply@krooonal.com',
+            recipient_list=[new_user]
         )
         return JsonResponse({"message": f"Potato passed to {new_user}!"})
 
