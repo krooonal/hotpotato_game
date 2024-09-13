@@ -61,12 +61,12 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-CORS_ALLOWED_ORIGINS = [
-    'https://krooonal.github.io',
-]
+# CORS_ALLOWED_ORIGINS = [
+#     'https://krooonal.github.io',
+# ]
 
 # For more complex CORS settings, you can use:
-# CORS_ALLOW_ALL_ORIGINS = True
+CORS_ALLOW_ALL_ORIGINS = True
 CORS_ALLOW_CREDENTIALS = True
 
 ROOT_URLCONF = 'hotpotato_game.urls'
