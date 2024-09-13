@@ -33,7 +33,7 @@ def pass_potato(request):
         send_mail(
             'You have the Hot Potato!',
             f'You have 24 hours to pass the hot potato.',
-            'noreply@yourdomain.com',
+            'noreply@krooonal.com',
             [new_user]
         )
         return JsonResponse({"message": f"Potato passed to {new_user}!"})
