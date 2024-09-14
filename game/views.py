@@ -9,7 +9,7 @@ import json
 
 game_data = GameData()
 
-@csrf_exempt
+# @csrf_exempt
 def start_game(request):
     if request.method == 'POST':
         body = json.loads(request.body)
@@ -34,7 +34,7 @@ def start_game(request):
     else:
         return JsonResponse({"game_id": "x"})
 
-@csrf_exempt
+# @csrf_exempt
 def pass_potato(request):
     if request.method == 'POST':
         body = json.loads(request.body)
