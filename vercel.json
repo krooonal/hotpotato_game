@@ -1,3 +1,8 @@
 {
-
+    "routes": [
+      {
+        "src": "/(.*)",
+        "dest": "hotpotato_game/wsgi.py"
+      }
+    ]
 }
