@@ -1,8 +1,8 @@
 # game/urls.py
 from django.urls import path
-from . import views
+from game.views import start_game, pass_potato
 
 urlpatterns = [
-    path('start/', views.start_game),
-    path('pass/', views.pass_potato),
+    path('start/', start_game),
+    path('pass/', pass_potato),
 ]
