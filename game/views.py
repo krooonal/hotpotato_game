@@ -31,6 +31,8 @@ def start_game(request):
             recipient_list=[user_email]
         )
         return JsonResponse({"game_id": new_game["game_id"], "message": "Game started!"})
+    else:
+        return JsonResponse({"game_id": "x"})
 
 @csrf_exempt
 def pass_potato(request):
