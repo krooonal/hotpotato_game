@@ -9,6 +9,9 @@ import json
 
 game_data = GameData()
 
+def index(request):
+    return JsonResponse({"game_id": "y"})
+
 # @csrf_exempt
 def start_game(request):
     if request.method == 'POST':
