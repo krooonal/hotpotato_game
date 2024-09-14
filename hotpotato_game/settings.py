@@ -94,7 +94,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'hotpotato_game.wsgi.application'
+WSGI_APPLICATION = 'hotpotato_game.wsgi.app'
 
 
 # Database
