@@ -27,8 +27,7 @@ SECRET_KEY = 'django-insecure-*q2e^erm&0j9pifskf1b(auut39&6!jy9^$!v2bw3%^pd!*$g3
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-# ALLOWED_HOSTS = ['*']
-ALLOWED_HOSTS = ['127.0.0.1', '.vercel.app']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -41,7 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'game',
-    # 'corsheaders',
+    'corsheaders',
     # 'django_celery_beat',
 ]
 
@@ -95,17 +94,17 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'hotpotato_game.wsgi.app'
+WSGI_APPLICATION = 'hotpotato_game.wsgi.application'
 
 
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 DATABASES = {
-    # 'default': {
-    #     'ENGINE': 'django.db.backends.sqlite3',
-    #     'NAME': BASE_DIR / 'db.sqlite3',
-    # }
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
 }
 
 
